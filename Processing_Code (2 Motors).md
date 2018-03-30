@@ -1,14 +1,13 @@
-
+```java
 import com.onformative.leap.*;
 import com.onformative.leap.LeapMotionP5;
 import com.leapmotion.leap.Finger;
 import processing.serial.*;
 LeapMotionP5 leap;
 
-```
 String angle,angle2,sending;
 Serial port;
-```
+
 
 public void setup() {
   // set window, P3D = 3D rendering
@@ -27,14 +26,14 @@ public void setup() {
 public void draw() {
       background(0);
       fill(255);
-  //for (Finger f : leap.getFingerList()) {
-    
+      //for (Finger f : leap.getFingerList()) {
+      
     PVector position = leap.getTip(leap.getFinger(1));
     PVector position2 = leap.getTip(leap.getFinger(2));
     //PVector velocity = leap.getVelocity(f);
-       ellipse(position.x, position.y, 10, 10);
-       ellipse(position2.x, position2.y, 10, 10);
-    
+    ellipse(position.x, position.y, 10, 10);
+    ellipse(position2.x, position2.y, 10, 10);
+
     if (position.y > 360) {
       angle = Integer.toString(120);
     }
@@ -68,3 +67,4 @@ public void draw() {
 public void stop() {
   leap.stop();
 }
+```
