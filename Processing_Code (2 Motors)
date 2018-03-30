@@ -6,7 +6,7 @@ import processing.serial.*;
 LeapMotionP5 leap;
 
 ```
-String angle,angle2,sending;
+**String angle,angle2,sending;**
 Serial port;
 ```
 
