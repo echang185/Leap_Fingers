@@ -6,7 +6,7 @@ Leap Motion Interfacing with Arduino & Processing to control 3-D printed Robotic
   * Leap Motion  
   * Step-Down Regulators (12V - 5V)  
   * Arduino Uno R3
-  * Additional Software - Processing
+  * Additional Software - Processing  
 # Schematic  
 ![Arduino to Servos Connection](doc/Arduino_Motors.PNG)  
 Pin 2 on each Motor is connected to its respective Arduino PWM pin.  
