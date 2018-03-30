@@ -1,0 +1,70 @@
+
+import com.onformative.leap.*;
+import com.onformative.leap.LeapMotionP5;
+import com.leapmotion.leap.Finger;
+import processing.serial.*;
+LeapMotionP5 leap;
+
+```java
+String angle,angle2,sending;
+Serial port;
+```
+
+public void setup() {
+  // set window, P3D = 3D rendering
+  size(480, 480, P3D);
+  noFill();
+  stroke(255);
+
+  // set LEAP object
+  leap = new LeapMotionP5(this);
+
+  // set com port. Currently: "/dev/tty.usbmodemfd121"
+  println("Available serial ports:");
+  println((Object[])Serial.list());
+  port = new Serial(this,Serial.list()[1], 9600);
+ }
+public void draw() {
+      background(0);
+      fill(255);
+  //for (Finger f : leap.getFingerList()) {
+    
+    PVector position = leap.getTip(leap.getFinger(1));
+    PVector position2 = leap.getTip(leap.getFinger(2));
+    //PVector velocity = leap.getVelocity(f);
+       ellipse(position.x, position.y, 10, 10);
+       ellipse(position2.x, position2.y, 10, 10);
+    
+    if (position.y > 360) {
+      angle = Integer.toString(120);
+    }
+    else if (position.y < 360) {
+      angle = Integer.toString(0);
+    } 
+    
+    if (position2.y > 360) {
+      angle2 = Integer.toString(120);
+    }
+    else if (position2.y < 360) {
+      angle2 = Integer.toString(0);
+    } 
+  
+    while(angle.length()< 4){
+      angle = '0' + angle;
+    }
+    while(angle2.length()<4){
+      angle2 = '0' + angle2;
+    }
+    sending = angle+angle2;
+    
+    port.write(sending);
+    delay(250);
+    println(sending);
+    
+  }
+  
+
+
+public void stop() {
+  leap.stop();
+}
