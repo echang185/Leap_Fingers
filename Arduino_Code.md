@@ -1,3 +1,4 @@
+```C
 #include <Servo.h>
 Servo myServo;
 Servo myServo2;
@@ -37,7 +38,7 @@ void loop() {
      int n1; //declare as number  
      int n2;
      
-     char carray1[6]; //magic needed to convert string to a number 
+     char carray1[6]; //needed to convert string to a number 
      servo1.toCharArray(carray1, sizeof(carray1));
      n1 = atoi(carray1); 
      
@@ -51,4 +52,4 @@ void loop() {
  } 
 
 }
-
+```
