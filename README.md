@@ -1,5 +1,4 @@
 # Leap_Fingers
-Leap Motion Interface with Arduino to control 3-D printed Robotic Fingers
-# test
-test;
-test
+Leap Motion Interface with Arduino to control 3-D printed Robotic Fingers 
+test 
+test2
