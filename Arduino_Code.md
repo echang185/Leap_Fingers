@@ -14,9 +14,7 @@ void setup() {
 }
 
 void loop() {
-  byte angle;
-  byte angle2;
-  
+
   while (Serial.available()) {
    delay(10);  
    if (Serial.available() >0) {
