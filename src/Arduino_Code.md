@@ -30,7 +30,7 @@ void loop() {
      servo1 = readString.substring(0, 4); //get the first four characters
      servo2 = readString.substring(4, 8); //get the next four characters 
      
-     Serial.println(servo1);  //print ot serial monitor to see results
+     Serial.println(servo1);  //print out serial monitor to see results
      Serial.println(servo2);
      
      int n1; //declare as number  
