@@ -1,18 +1,20 @@
 ```C
+
 #include <Servo.h>
-Servo myServo;
+Servo myServo1;
 Servo myServo2;
 Servo myServo3;
 Servo myServo4;
-
-String readString, servo1, servo2, servo3, servo4;
+Servo myServo5;
+String readString, servo1, servo2, servo3, servo4, servo5;
 
 void setup() {
   Serial.begin(9600);
-  myServo.attach(9);
-  myServo2.attach(10);
-  myServo3.attach(11);
-  myServo4.attach(12); 
+  myServo1.attach(9);//index
+  myServo2.attach(10);//middle
+  myServo3.attach(11);//ring
+  myServo4.attach(12);//pinky
+  myServo5.attach(13);//thumb
   Serial.println("servo-test-21");
 
 }
@@ -35,17 +37,19 @@ void loop() {
      servo2 = readString.substring(4, 8); //get the next four characters 
      servo3 = readString.substring(8, 12);
      servo4 = readString.substring(12, 16);
+     servo5 = readString.substring(16, 20);
      
      Serial.println(servo1);  //print out serial monitor to see results
      Serial.println(servo2);
      Serial.println(servo3);
      Serial.println(servo4);
+     Serial.println(servo5);
      
      int n1; //declare as number  
      int n2;
      int n3;
      int n4;
-     
+     int n5;
      
      char carray1[6]; //needed to convert string to a number 
      servo1.toCharArray(carray1, sizeof(carray1));
@@ -62,11 +66,16 @@ void loop() {
      char carray4[6];
      servo4.toCharArray(carray4, sizeof(carray4));
      n4 = atoi(carray4); 
+
+     char carray5[6];
+     servo5.toCharArray(carray5, sizeof(carray5));
+     n5 = atoi(carray5); 
      
-     myServo.write(n1); //set servo position 
+     myServo1.write(n1); //set servo position 
      myServo2.write(n2);
      myServo3.write(n3);
      myServo4.write(n4);
+     myServo5.write(n5);
      readString="";
  } 
 
